@@ -1,0 +1,40 @@
+<!-- <select [(ngModel)]="filterStatus">
+  <option value="SelectAll">All Word</option>
+  <option value="SelectMemori">Memori</option>
+  <option value="SelectForget">Forget</option>
+</select> -->
+<select [(ngModel)]="filerStatus">
+  <option value="filterSelectAll">All Word</option>
+  <option value="filterMemori">All Memori</option>
+  <option value="filterForget">All Forget</option>
+</select>
+<bR /><br />
+<button (click)="isShowForm = true">New Word</button>
+<div *ngIf="isShowForm">
+  <input placeholder="English" [(ngModel)]="nameEN" />
+  <input placeholder="TiengViet" [(ngModel)]="nameVN" />
+  <br />
+  <button (click)="addWord()">Add</button>
+</div>
+
+<div *ngFor="let item of arrWords">
+  <!-- <div class="word" *ngIf="(filterStatus==='SelectAll')||
+  (filterStatus==='SelectMemori'&&item.memorized ) ||
+  (filterStatus==='SelectForget'&&!item.memorized)
+  "> -->
+  <!-- <div class="word" *ngIf="getShowStatus(item.memorized)"> -->
+  <!-- <div class="word" *ngIf="(filerStatus==='filterSelectAll')||
+  (filerStatus==='filterMemori' &&item.memorized)||
+  (filerStatus==='filterForget'&& !item.memorized)
+  "> -->
+  <div class="word" *ngIf="getFitler(item.memorized)">
+    <h4 [ngStyle]="{ color: item.memorized ? 'green' : 'red' }">
+      {{ item.en }}
+    </h4>
+    <p>{{ item.vn }}</p>
+    <button (click)="item.memorized=!item.memorized">
+      {{item.memorized ? 'Memory': 'Forget'}}
+    </button>
+    <button (click)="removeWord(item.id)">Delete</button>
+  </div>
+</div>

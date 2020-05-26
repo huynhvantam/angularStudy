@@ -1,0 +1,20 @@
+<!-- <ng-container *ngFor="let item of arrPeople">
+  <app-person [name]="item.name" [age]="item.age"></app-person>
+</ng-container> -->
+<!-- <button (click)="addNumber()">ADD</button>
+<button (click)="subNumber()">SUB</button> -->
+<!-- <ng-container *ngFor="let item of arrPeople">
+  <app-person
+  [name]= "item.name"
+  [age]= item.age
+  (removeP) = "removePersonByName($event)"
+  ></app-person>
+
+</ng-container> -->
+<div *ngFor="let item of arrPeople">
+  <app-person
+  [name] = "item.name"
+  [age] = "item.age"
+  (eventXoa) = "evenXoaF($event)"
+  ></app-person>
+</div>

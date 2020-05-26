@@ -1,0 +1,17 @@
+<!-- <input placeholder="Enter username" (keyup)="showEvent($event);"> -->
+
+<!-- <input placeholder="Enter username" [(ngModel)]="name" #txtUsername> -->
+
+<input placeholder="Enter username" [(ngModel)]="name" #txtUsername>
+
+<h3 [style.color]="isChange ? 'red': 'black'">
+  Your name is: {{name}}
+</h3>
+<code>{{txtUsername.value|json}}</code>
+
+<div [class]="isChange ? 'square':'circle'"></div>
+<div [class.circle]="!isChange"></div>
+<div [ngClass]="currentClass"></div>
+<h3 [ngStyle]="name.length %2 ===0 ? eventStyle: oddStyle">
+  Your name is: {{name}}
+</h3>
